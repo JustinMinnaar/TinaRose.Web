@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33326.253
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinaRose.BlazorApp1", "TinaRose.BlazorApp1\TinaRose.BlazorApp1.csproj", "{52AAFB22-8650-4D0B-A942-E471E2A0EDE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinaRose.BlazorApp1", "TinaRose.BlazorApp1\TinaRose.BlazorApp1.csproj", "{52AAFB22-8650-4D0B-A942-E471E2A0EDE8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TinaRose.BlazorApp2", "TinaRose.BlazorApp2\TinaRose.BlazorApp2.csproj", "{E1403B1D-D3D7-4345-B631-B175EC587770}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinaRose.BlazorApp3", "TinaRose.BlazorApp3\TinaRose.BlazorApp3.csproj", "{23C022E1-811D-4C17-9F4E-DA81B5926295}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{52AAFB22-8650-4D0B-A942-E471E2A0EDE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52AAFB22-8650-4D0B-A942-E471E2A0EDE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52AAFB22-8650-4D0B-A942-E471E2A0EDE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1403B1D-D3D7-4345-B631-B175EC587770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1403B1D-D3D7-4345-B631-B175EC587770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1403B1D-D3D7-4345-B631-B175EC587770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1403B1D-D3D7-4345-B631-B175EC587770}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C022E1-811D-4C17-9F4E-DA81B5926295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C022E1-811D-4C17-9F4E-DA81B5926295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C022E1-811D-4C17-9F4E-DA81B5926295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C022E1-811D-4C17-9F4E-DA81B5926295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

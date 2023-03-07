@@ -1,0 +1,64 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>TinaRose</PageTitle>
+
+<div class="container-fluid no-padding" style="background-color: black; height: 100vh;">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">TinaRose</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">Home</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/about" Match="NavLinkMatch.All">About</NavLink>
+                    </li>
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/contact" Match="NavLinkMatch.All">Contact</NavLink>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <LoginDisplay />
+                </div>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container-fluid no-padding">
+            <div class="loader"></div>
+            <div class="row m-0 vh-100" style="background-image:url('@backgroundImageUrl'); background-size: contain; background-position: center; background-repeat: no-repeat;">
+                <div class="col-sm-12 col-md-8 col-lg-6 mx-auto my-auto">
+                </div>
+                <article class="content px-4">
+                    @Body
+                </article>
+            </div>
+        </div>
+    </main>
+
+</div>
+
+@code {
+    private string backgroundImageUrl = "";
+
+    [Inject]
+    private NavigationManager NavigationManager { get; set; } = default!;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+            LoadBackgroundImage(); // load the background image
+    }
+
+    private void LoadBackgroundImage()
+    {
+        backgroundImageUrl = $"{NavigationManager.BaseUri}images/background.jpg";
+        StateHasChanged(); // update the UI to show the loading animation
+    }
+}
