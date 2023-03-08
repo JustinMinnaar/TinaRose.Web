@@ -1,0 +1,22 @@
+﻿
+.welcome-image{
+    background-image: url('images/pages/welcome.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;    
+    height:25vh;
+}
+
+.welcome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.product-link, .agent-link, .contact-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: underline;
+    margin: 0 5px;
+}

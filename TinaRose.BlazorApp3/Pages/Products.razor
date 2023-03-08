@@ -1,0 +1,48 @@
+﻿@page "/products"
+
+@using MyProject.Data
+@using System.Linq
+
+<h1>Products</h1>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var product in Products)
+    {
+        <div class="col">
+            <div class="card h-100">
+                <img src="@product.GetImageUrl()" class="card-img-top" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">@product.Description</p>
+                    @if (product.SalePrice != null)
+                    {
+                        <p class="card-text"><del>@product.Price.ToString("C")</del> <span class="text-danger">@product.SalePrice.ToString("C")</span></p>
+                    }
+                    else
+                    {
+                        <p class="card-text">@product.Price.ToString("C")</p>
+                    }
+                </div>
+                <ul class="list-group list-group-flush">
+                    @foreach (var item in product.Items)
+                    {
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-center align-items-center" style="height: 2rem; width: 2rem; background-color: #@item.Color"></div>
+                            <span class="ms-2">@item.Name</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private List<Product> Products = new List<Product>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var context = new ApplicationDbContext();
+        Products = context.Products.ToList();
+    }
+}

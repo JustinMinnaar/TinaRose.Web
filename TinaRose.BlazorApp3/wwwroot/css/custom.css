@@ -1,0 +1,73 @@
+﻿/* Set black background and white text color for body */
+body {
+    background-color: #000;
+    color: #fff;
+}
+
+.custom-bg-color {
+    background-color: #000000 !important;
+}
+
+nav.navbar-dark div.top-row {
+    background-color: black;
+}
+
+.card-body {
+    background-color: #222;
+}
+
+/* Set gold color for headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #EAD37F;
+}
+
+.top-row {
+    background-color: #444;
+    color: #fff;
+}
+
+.nav-scrollable {
+    background-color: #444;
+    color: #fff;
+}
+
+/* Set white background and gray text color for sidebar */
+.nav-sidebar {
+    background-color: #444;
+    color: #fff;
+}
+
+    /* Set gold color for selected items in sidebar */
+    .nav-sidebar .nav-link.active {
+        color: #EAD37F;
+    }
+
+/* custom.css */
+.navbar-dark {
+    background-color: #111;
+    color: #fff;
+}
+
+    .navbar-dark .navbar-brand {
+        color: #fff;
+    }
+
+    .navbar-dark .navbar-nav .nav-link {
+        color: #fff;
+    }
+
+        .navbar-dark .navbar-nav .nav-link.active,
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #EAD37F;
+            background-color: #444;
+        }
+
+
+.top-row {
+    background-color: black !important;
+}
+
+.table {
+    color: white;
+    /* other styles here */
+}

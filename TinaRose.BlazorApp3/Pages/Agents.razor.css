@@ -1,0 +1,33 @@
+﻿.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 5cm;
+    height: 7cm;
+    margin: 1rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+    .card img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+.card-content {
+    padding: 1rem;
+}
+
+    .card-content h3 {
+        margin-top: 0;
+    }
+
+    .card-content p {
+        margin-bottom: 0;
+    }

@@ -1,0 +1,87 @@
+﻿@page "/agents/signup"
+@using TinaRose.BlazorApp3.Data;
+@using Microsoft.AspNetCore.Components.Forms
+@inject NavigationManager Navigation
+@inject ApplicationDbContext DbContext
+
+<h1>Signup as an Agent</h1>
+
+<EditForm Model="@agent" OnValidSubmit="CreateAgent">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>First Name:</label>
+        <InputText class="form-control" @bind-Value="agent.FirstName" />
+    </div>
+
+    <div class="form-group">
+        <label>Last Name:</label>
+        <InputText class="form-control" @bind-Value="agent.LastName" />
+    </div>
+
+    <div class="form-group">
+        <label>Cell Phone Number:</label>
+        <InputText class="form-control" @bind-Value="agent.CellPhoneNumber" />
+    </div>
+
+    <div class="form-group">
+        <label>City:</label>
+        <InputText class="form-control" @bind-Value="agent.City" />
+    </div>
+
+    <div class="form-group">
+        <label>Profile Picture:</label>
+        <InputFile class="form-control" OnChange="@HandleProfilePictureSelection" />
+    </div>
+
+    <div class="form-group">
+        <label>Profile Description:</label>
+        <InputTextArea class="form-control" @bind-Value="agent.ProfileDescription" />
+    </div>
+
+    <div class="form-group">
+        <label>Identity Document:</label>
+        <InputFile class="form-control" OnChange="@HandleIdentityDocumentSelection" />
+    </div>
+
+    <div class="form-group">
+        <label>Physical Address:</label>
+        <InputTextArea class="form-control" @bind-Value="agent.PhysicalAddress" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</EditForm>
+
+@code {
+
+    private Agent agent { get; set; } = new Agent();
+
+    private IBrowserFile? profilePictureFile;
+
+    private async Task HandleProfilePictureSelection(InputFileChangeEventArgs e)
+    {
+        profilePictureFile = e.File;
+        var buffer = new byte[profilePictureFile.Size];
+        await profilePictureFile.OpenReadStream().ReadAsync(buffer);
+        agent.ProfilePictureBytes = buffer;
+    }
+
+    private IBrowserFile? identityDocumentFile;
+
+    private async Task HandleIdentityDocumentSelection(InputFileChangeEventArgs e)
+    {
+        identityDocumentFile = e.File;
+        var buffer = new byte[identityDocumentFile.Size];
+        await identityDocumentFile.OpenReadStream().ReadAsync(buffer);
+        agent.IdentityDocumentBytes = buffer;
+    }
+
+    private async void CreateAgent()
+    {
+        DbContext.Agents.Add(agent);
+        await DbContext.SaveChangesAsync();
+
+        Navigation.NavigateTo("/agents/success");
+    }
+}
